@@ -233,7 +233,7 @@ DLL_EXPORT_C_DECL void WINAPI SetOnRtnOpenAccountByBank(Trade* spi, void* func) 
 DLL_EXPORT_C_DECL void WINAPI SetOnRtnCancelAccountByBank(Trade* spi, void* func) { spi->_RtnCancelAccountByBank = func; }
 DLL_EXPORT_C_DECL void WINAPI SetOnRtnChangeAccountByBank(Trade* spi, void* func) { spi->_RtnChangeAccountByBank = func; }
 
-DLL_EXPORT_C_DECL void* WINAPI CreateApi() { return CThostFtdcTraderApi::CreateFtdcTraderApi("./log/"); }
+DLL_EXPORT_C_DECL void* WINAPI CreateApi(bool bIsProductionMode = true) { return CThostFtdcTraderApi::CreateFtdcTraderApi("./log/", bIsProductionMode); }
 
 DLL_EXPORT_C_DECL void* WINAPI CreateSpi() { return new Trade(); }
 

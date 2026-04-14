@@ -18,11 +18,11 @@
 #define WINAPI      __stdcall
 #define WIN32_LEAN_AND_MEAN             //  从 Windows 头文件中排除极少使用的信息
 #include "stddef.h"
-#include "../ctp_20160606/ThostFtdcMdApi.h"
-#pragma comment(lib, "../ctp_20160606/thostmduserapi.lib")
+#include "../ctp_2026/ThostFtdcMdApi.h"
+#pragma comment(lib, "../ctp_2026/thostmduserapi_se.lib")
 #else
 #define WINAPI
-#include "../ctp_20160606/ThostFtdcMdApi.h"
+#include "../ctp_2026/ThostFtdcMdApi.h"
 #endif
 
 #include <string.h>

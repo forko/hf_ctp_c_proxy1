@@ -33,7 +33,7 @@ DLL_EXPORT_C_DECL void WINAPI SetOnRspUnSubForQuoteRsp(Quote* spi, void* func) {
 DLL_EXPORT_C_DECL void WINAPI SetOnRtnDepthMarketData(Quote* spi, void* func) { spi->_RtnDepthMarketData = func; }
 DLL_EXPORT_C_DECL void WINAPI SetOnRtnForQuoteRsp(Quote* spi, void* func) { spi->_RtnForQuoteRsp = func; }
 
-DLL_EXPORT_C_DECL void* WINAPI CreateApi() { return CThostFtdcMdApi::CreateFtdcMdApi("./log/"); }
+DLL_EXPORT_C_DECL void* WINAPI CreateApi(bool bIsUsingUdp = false, bool bIsMulticast = false, bool bIsProductionMode = true) { return CThostFtdcMdApi::CreateFtdcMdApi("./log/", bIsUsingUdp, bIsMulticast, bIsProductionMode); }
 
 DLL_EXPORT_C_DECL void* WINAPI CreateSpi() { return new Quote(); }
 
