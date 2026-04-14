@@ -57,7 +57,7 @@ public:
 	typedef int (WINAPI *RspParkedOrderInsert)(CThostFtdcParkedOrderField *pParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	typedef int (WINAPI *RspParkedOrderAction)(CThostFtdcParkedOrderActionField *pParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	typedef int (WINAPI *RspOrderAction)(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
-	typedef int (WINAPI *RspQueryMaxOrderVolume)(CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
+	typedef int (WINAPI *RspQueryMaxOrderVolume)(CThostFtdcQryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	typedef int (WINAPI *RspSettlementInfoConfirm)(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	typedef int (WINAPI *RspRemoveParkedOrder)(CThostFtdcRemoveParkedOrderField *pRemoveParkedOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
 	typedef int (WINAPI *RspRemoveParkedOrderAction)(CThostFtdcRemoveParkedOrderActionField *pRemoveParkedOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast);
@@ -391,7 +391,7 @@ public:
 			}
 		}
 	}
-	virtual void OnRspQueryMaxOrderVolume (CThostFtdcQueryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+	virtual void OnRspQryMaxOrderVolume (CThostFtdcQryMaxOrderVolumeField *pQueryMaxOrderVolume, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
 		if (_RspQueryMaxOrderVolume)
 		{
@@ -399,7 +399,7 @@ public:
 				((RspQueryMaxOrderVolume)_RspQueryMaxOrderVolume)(pQueryMaxOrderVolume, repare(pRspInfo), nRequestID, bIsLast);
 			else
 			{
-				CThostFtdcQueryMaxOrderVolumeField f; memset(&f, 0, sizeof(f));
+				CThostFtdcQryMaxOrderVolumeField f; memset(&f, 0, sizeof(f));
 				((RspQueryMaxOrderVolume)_RspQueryMaxOrderVolume)(&f, repare(pRspInfo), nRequestID, bIsLast);
 			}
 		}
